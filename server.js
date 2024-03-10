@@ -9,7 +9,7 @@ let model;
 
 // Load the GPT4All model
 async function loadGPTModel() {
-  model = await loadModel('mistral-7b-openorca.Q4_0.gguf', { verbose: true });
+  model = await loadModel('em_german_mistral_v01.Q4_0.gguf', { verbose: true });
 }
 
 // Initialize the GPT model
@@ -28,7 +28,15 @@ app.post('/complete', async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+const port = process.env.PORT || 3000;
+// Root path handler
+app.get('/GPT10.03', (req, res) => {
+    res.send('Welcome to the GPT server!');
+  });
+  app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+  });
+ 
+
+  
+  
