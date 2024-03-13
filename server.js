@@ -30,8 +30,9 @@ app.post('/complete', async (req, res) => {
 // Start the server
 const port = process.env.PORT || 3000;
 // Root path handler
-app.get('/GPT10.03', (req, res) => {
+app.get('/', (req, res) => {
     res.send('Welcome to the GPT server!');
+    app.use(express.static('./public'))
   });
   app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
